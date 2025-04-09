@@ -127,23 +127,32 @@ def binaryToNumber(bin):
 
 def main():
   #Ask user if they want to encode/decode
+  action = input("Do you want to encode or decode:")
+  image_path = input("Enter the path of the image: ")
+  img = Image.open(image_path)
 
+  if action == 'encode': 
+        message = input("Enter the message you want to encode: ")
+        encode(img, message)
+        print("Message encoded successfully!")
+
+  elif action == 'd':  # If decoding
+        # Decode the message from the image
+        decoded_message = decode(img)
+        print("Decoded message:" + decoded_message)
+        
   #bin = numberToBinary(22)
   #print(bin)
-
   #num = binaryToNumber("11111111")
   #print(num)
 
-  
+  #encode
   myImg = Image.open('pki.png')
   myMsg = input("Enter Your Message:")
   encode(myImg, myMsg)
   myImg.close()
   
-
-
-
-  
+  #decode
   yourImg = Image.open('secretImg.png')
   msg = decode(yourImg)
   print(msg)
